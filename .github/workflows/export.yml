@@ -1,0 +1,26 @@
+name: Export the library
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node export.mjs https://numbered.app .
+      - name: Commit what changed
+        run: |
+          git add -A index.json items
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name="numbered-library" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "The library on $(date -u +%F)"
+          git push
