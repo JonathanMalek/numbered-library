@@ -19,7 +19,7 @@ jobs:
       - run: node export.mjs https://numbered.app .
       - name: Commit what changed
         run: |
-          git add -A index.json items
+          git add -A .
           if git diff --cached --quiet; then exit 0; fi
           git -c user.name="numbered-library" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
             commit -m "The library on $(date -u +%F)"
