@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "state-of-mind",
+  "version": 1,
+  "title": "State of Mind",
+  "description": "One State of Mind as Apple records it: whether it was a moment or a day, how pleasant it was, the feelings the person named and what they associated with them. Every field is optional. The valence is kept as the person gave it and is not drawn.",
+  "numbered": {
+    "reading": [
+      "classification",
+      "labels"
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "title": "Kind",
+      "description": "A moment's emotion or the day's mood.",
+      "enum": [
+        "momentaryEmotion",
+        "dailyMood"
+      ]
+    },
+    "valence": {
+      "type": "number",
+      "title": "Valence",
+      "description": "How pleasant, from -1 (very unpleasant) to 1 (very pleasant), as the person set it. It carries no bounds, because bounds would draw a scale."
+    },
+    "classification": {
+      "type": "string",
+      "title": "Classification",
+      "description": "HealthKit's name for how pleasant it was.",
+      "enum": [
+        "veryUnpleasant",
+        "unpleasant",
+        "slightlyUnpleasant",
+        "neutral",
+        "slightlyPleasant",
+        "pleasant",
+        "veryPleasant"
+      ]
+    },
+    "labels": {
+      "type": "array",
+      "title": "Feelings",
+      "description": "The feelings the person named, in HealthKit's words.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "amazed",
+          "amused",
+          "angry",
+          "anxious",
+          "ashamed",
+          "brave",
+          "calm",
+          "content",
+          "disappointed",
+          "discouraged",
+          "disgusted",
+          "embarrassed",
+          "excited",
+          "frustrated",
+          "grateful",
+          "guilty",
+          "happy",
+          "hopeless",
+          "irritated",
+          "jealous",
+          "joyful",
+          "lonely",
+          "passionate",
+          "peaceful",
+          "proud",
+          "relieved",
+          "sad",
+          "scared",
+          "stressed",
+          "surprised",
+          "worried",
+          "annoyed",
+          "confident",
+          "drained",
+          "hopeful",
+          "indifferent",
+          "overwhelmed",
+          "satisfied"
+        ]
+      }
+    },
+    "associations": {
+      "type": "array",
+      "title": "Associations",
+      "description": "What the person linked the feeling to, in HealthKit's words.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "community",
+          "currentEvents",
+          "dating",
+          "education",
+          "family",
+          "fitness",
+          "friends",
+          "health",
+          "hobbies",
+          "identity",
+          "money",
+          "partner",
+          "selfCare",
+          "spirituality",
+          "tasks",
+          "travel",
+          "work",
+          "weather"
+        ]
+      }
+    },
+    "start": {
+      "type": "string",
+      "numbered": {
+        "control": "datetime"
+      },
+      "title": "Start",
+      "description": "When it was logged, ISO 8601 with its offset from UTC."
+    }
+  }
+}

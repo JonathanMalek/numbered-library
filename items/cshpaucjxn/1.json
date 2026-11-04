@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "apple-activity",
+  "version": 1,
+  "title": "Steps",
+  "description": "A stretch of movement as Apple measured it: how many steps, whether walking or running, and when it began and ended. Every field is optional.",
+  "numbered": {
+    "reading": [
+      "steps",
+      "movement"
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "steps": {
+      "type": "integer",
+      "title": "Steps",
+      "description": "How many steps were counted.",
+      "minimum": 0
+    },
+    "movement": {
+      "type": "string",
+      "title": "Movement",
+      "description": "How the person moved.",
+      "enum": [
+        "walking",
+        "running",
+        "runningWalking"
+      ]
+    },
+    "start": {
+      "type": "string",
+      "numbered": {
+        "control": "datetime"
+      },
+      "title": "Start",
+      "description": "When the stretch began, ISO 8601 with its offset from UTC."
+    },
+    "end": {
+      "type": "string",
+      "numbered": {
+        "control": "datetime"
+      },
+      "title": "End",
+      "description": "When the stretch ended, ISO 8601 with its offset from UTC."
+    }
+  }
+}

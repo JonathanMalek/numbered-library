@@ -1,0 +1,17 @@
+{
+  "name": "evening-questions", "version": 1, "type": "object",
+  "title": "Evening Questions",
+  "description": "Three questions for the end of a day.",
+  "properties": {
+    "three_things": { "type": "string",
+      "title": "Three things that happened today",
+      "numbered": { "control": "markdown" } },
+    "better":       { "type": "string",
+      "title": "How could I have made today better?",
+      "numbered": { "control": "markdown" } },
+    "tomorrow":     { "type": "string",
+      "title": "What am I looking forward to tomorrow?",
+      "numbered": { "control": "markdown" } }
+  },
+  "numbered": { "entry": "guided" }
+}

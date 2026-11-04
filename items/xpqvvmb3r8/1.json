@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "apple-workout",
+  "version": 1,
+  "title": "Workout",
+  "description": "One workout as Apple records it: what kind it was, when it began and ended, and the numbers a watch or phone measured. Every field is optional, because a workout carries only what its device measured. A route is a GPX file attached to the record's entry and is not a field.",
+  "numbered": {
+    "reading": [
+      "activity_name",
+      "duration_s",
+      "distance_m"
+    ]
+  },
+  "type": "object",
+  "properties": {
+    "activity": {
+      "type": "string",
+      "title": "Activity",
+      "description": "HealthKit's name for the kind of workout, in lower camel case, such as running or traditionalStrengthTraining. It is the same in every language."
+    },
+    "activity_name": {
+      "type": "string",
+      "title": "Activity name",
+      "description": "The name Apple wrote for the activity, in the words the person saw."
+    },
+    "start": {
+      "type": "string",
+      "numbered": {
+        "control": "datetime"
+      },
+      "title": "Start",
+      "description": "When the workout began, ISO 8601 with its offset from UTC."
+    },
+    "end": {
+      "type": "string",
+      "numbered": {
+        "control": "datetime"
+      },
+      "title": "End",
+      "description": "When the workout ended, ISO 8601 with its offset from UTC."
+    },
+    "duration_s": {
+      "type": "number",
+      "title": "Duration",
+      "description": "Seconds the workout lasted.",
+      "minimum": 0,
+      "unit": "s",
+      "numbered": {
+        "control": "duration"
+      }
+    },
+    "distance_m": {
+      "type": "number",
+      "title": "Distance",
+      "description": "Metres covered.",
+      "minimum": 0,
+      "unit": "m"
+    },
+    "active_energy_kcal": {
+      "type": "number",
+      "title": "Active energy",
+      "description": "Kilocalories burned by movement.",
+      "minimum": 0,
+      "unit": "kcal"
+    },
+    "average_heart_rate_bpm": {
+      "type": "number",
+      "title": "Average heart rate",
+      "description": "Beats per minute, averaged over the workout.",
+      "minimum": 0,
+      "unit": "bpm"
+    }
+  }
+}
